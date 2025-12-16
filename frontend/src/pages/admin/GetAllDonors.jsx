@@ -20,7 +20,9 @@ import {
   ChevronUp
 } from 'lucide-react';
 
-const API_URL = "http://localhost:5000/api/admin";
+const API = import.meta.env.VITE_API_URL;
+
+const API_URL = `${API}/api/admin`;
 
 function GetAllDonors() {
   const [donors, setDonors] = useState([]);

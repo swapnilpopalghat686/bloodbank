@@ -17,6 +17,8 @@ import {
 } from "lucide-react";
 import { toast } from "react-hot-toast";
 
+const API = import.meta.env.VITE_API_URL;
+
 const AdminDashboard = () => {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -34,7 +36,7 @@ const AdminDashboard = () => {
 
       console.log("🔄 Fetching admin dashboard stats...");
       
-      const res = await fetch("http://localhost:5000/api/admin/dashboard", {
+      const res = await fetch(`${API}/api/admin/dashboard`, {
         headers: { 
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'

@@ -17,9 +17,10 @@ import {
   Building2,
   ListPlus,
 } from "lucide-react";
+const API = import.meta.env.VITE_API_URL;
 
 // NOTE: Ensure this URL matches your running backend API endpoint
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = `${API}/api`;
 
 const STATUS_OPTIONS = [
   { value: "all", label: "All Camps" },

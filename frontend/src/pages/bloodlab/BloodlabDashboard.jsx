@@ -21,8 +21,9 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { toast } from "react-hot-toast";
+const API = import.meta.env.VITE_API_URL;
 
-const API_URL = "http://localhost:5000/api/blood-lab";
+const API_URL = `${API}/api/blood-lab`;
 
 const BloodLabDashboard = () => {
   const [dashboard, setDashboard] = useState(null);

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+const API = import.meta.env.VITE_API_URL;
 
 // Constants for better maintainability
 const GENDERS = ["Male", "Female", "Other"];
@@ -275,7 +276,7 @@ export default function DonorRegisterForm() {
       role: "donor",
     };  
     
-        const API_URL = "http://localhost:5000/api/auth/register"; 
+        const API_URL = `${API}/api/auth/register`; 
 
     
     console.log("Submitting Donor Data:", submissionPayload);

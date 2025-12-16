@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { Droplet, MapPin, Phone, Clock, Send } from "lucide-react";
+const API = import.meta.env.VITE_API_URL;
 
 const HospitalRequestBlood = () => {
   const [labs, setLabs] = useState([]);
@@ -20,7 +21,7 @@ const HospitalRequestBlood = () => {
       try {
         setLabsLoading(true);
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/api/facility/labs", {
+        const res = await axios.get(`${API}/api/facility/labs`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setLabs(res.data.labs || []);
@@ -43,7 +44,7 @@ const HospitalRequestBlood = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.post(
-        "http://localhost:5000/api/hospital/blood/request",
+        `${API}/api/hospital/blood/request`,
         form,
         { headers: { Authorization: `Bearer ${token}` } }
       );

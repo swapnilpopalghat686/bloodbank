@@ -22,6 +22,7 @@ import {
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+const API = import.meta.env.VITE_API_URL;
 
 const LandingPage = () => {
   const stats = [

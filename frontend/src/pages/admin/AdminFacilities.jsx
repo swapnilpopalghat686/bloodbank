@@ -16,6 +16,7 @@ import {
   RefreshCw,
   AlertCircle
 } from "lucide-react";
+const API = import.meta.env.VITE_API_URL;
 
 const FacilityApproval = () => {
   const [facilities, setFacilities] = useState([]);
@@ -26,7 +27,7 @@ const FacilityApproval = () => {
   const [refreshing, setRefreshing] = useState(false);
 
   const token = localStorage.getItem("token");
-  const API_URL = "http://localhost:5000/api/admin";
+  const API_URL = `${API}/api/admin`;
 
   // Fetch pending facilities
   const fetchPendingFacilities = async (showToast = false) => {

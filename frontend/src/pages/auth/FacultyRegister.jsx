@@ -3,6 +3,8 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
+const API = import.meta.env.VITE_API_URL;
+
 // Constants for better maintainability
 const FACILITY_TYPES = ["Hospital", "Blood Lab"];
 const FACILITY_CATEGORIES = [
@@ -294,7 +296,7 @@ export default function FacilityRegisterForm() {
   };
     
     // **YOUR TARGET URL**
-    const API_URL = "http://localhost:5000/api/auth/register"; 
+    const API_URL = `${API}/api/auth/register`; 
     
    console.log("Submitting Data to Backend:", submissionPayload); // Use the new payload
 

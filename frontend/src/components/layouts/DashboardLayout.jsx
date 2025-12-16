@@ -26,6 +26,8 @@ import {
   Loader2,
 } from "lucide-react";
 
+const API = import.meta.env.VITE_API_URL;
+
 const DashboardLayout = ({ userRole = "donor" }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
@@ -146,7 +148,7 @@ const DashboardLayout = ({ userRole = "donor" }) => {
       
       while (attempt < maxRetries) {
         try {
-          const res = await fetch("http://localhost:5000/api/auth/profile", {
+          const res = await fetch(`${API}/api/auth/profile`, {
             headers: { Authorization: `Bearer ${token}` },
           });
 

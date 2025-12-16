@@ -18,9 +18,9 @@ import {
   Tag,
   Building,
 } from "lucide-react";
-
+const API = import.meta.env.VITE_API_URL;
 // NOTE: Using localStorage and hardcoded URL for API connection as per previous context.
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = `${API}/api`;
 
 // Define a default structured object for operating hours
 const defaultOperatingHours = {

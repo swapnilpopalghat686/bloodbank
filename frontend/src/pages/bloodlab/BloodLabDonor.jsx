@@ -14,6 +14,7 @@ import {
   Filter,
   Plus
 } from "lucide-react";
+const API = import.meta.env.VITE_API_URL;
 
 const BloodLabDonor = () => {
   const [term, setTerm] = useState("");
@@ -44,7 +45,7 @@ const BloodLabDonor = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.get(
-        `http://localhost:5000/api/blood-lab/donors/search?term=${term}`,
+        `${API}/api/blood-lab/donors/search?term=${term}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -65,7 +66,7 @@ const BloodLabDonor = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.get(
-        "http://localhost:5000/api/blood-lab/donations/recent",
+        `${API}/api/blood-lab/donations/recent`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setRecentDonations(res.data.donations || []);
@@ -97,7 +98,7 @@ const BloodLabDonor = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        `http://localhost:5000/api/blood-lab/donors/donate/${selectedDonor._id}`,
+        `${API}/api/blood-lab/donors/donate/${selectedDonor._id}`,
         donationData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -118,7 +119,7 @@ const BloodLabDonor = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        `http://localhost:5000/api/blood-lab/donors/donate/${donorId}`,
+        `${API}/api/blood-lab/donors/donate/${donorId}`,
         { quantity: 1, remarks: "Quick donation" },
         { headers: { Authorization: `Bearer ${token}` } }
       );

@@ -16,6 +16,7 @@ import {
   MoreVertical
 } from "lucide-react";
 import { toast } from "react-hot-toast";
+const API = import.meta.env.VITE_API_URL;
 
 const BloodCamps = () => {
   const [camps, setCamps] = useState([]);
@@ -62,7 +63,7 @@ const BloodCamps = () => {
 
   const token = localStorage.getItem("token");
   // Fixed API URL - removed /blood-lab if it doesn't exist
-  const API_URL = "http://localhost:5000/api/blood-lab";
+  const API_URL = `${API}/api/blood-lab`;
 
   console.log("🔧 BloodCamps Component State:", {
     campsCount: camps.length,
