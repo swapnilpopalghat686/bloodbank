@@ -14,7 +14,11 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-  origin: "http://localhost:5173", // or 3000
+  origin: [
+      "http://localhost:5173",
+      "https://bloodbank-41d4.vercel.app"
+    ],// or 3000
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 }));
 
